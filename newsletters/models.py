@@ -12,6 +12,7 @@ class NewsletterUser(models.Model):
     
 
 class Newsletter(models.Model):
+    
 
     EMAIL_STATUS_CHOICES=(
         ('draft', 'draft'),

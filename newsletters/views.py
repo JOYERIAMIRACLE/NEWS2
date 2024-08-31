@@ -51,3 +51,4 @@ def newsletter_unsubscribe(request):
         'form': form,
     }
     return render(request, 'newsletters/email_templates/unsubscribe.html', context)
+

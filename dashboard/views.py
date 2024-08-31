@@ -54,6 +54,6 @@ class NewsletterDetailview(View):
     def get(self, request,pk, *args, **kwargs):
         newsletter=get_object_or_404(Newsletter, pk=pk)
         context= {
-            'newsletter': newsletter
+        'newsletter': newsletter
         }
         return render(request, 'dashboard/detail.html', context)
