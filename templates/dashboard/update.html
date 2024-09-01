@@ -123,17 +123,10 @@
           <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
             <div class="ml-4 mt-2">
               <h3 class="text-lg leading-6 font-medium text-gray-900">
-                Newsletter detail: {{newsletter.name}}
+                edit newsletter
               </h3>
             </div>
-            <div class="ml-4 mt-2 flex-shrink-0 mr-2">
-              <a href="{% url 'dashboard:update' newsletter.id %}" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-100">
-                edit
-              </a>
-              <a href="{% url 'dashboard:delete' newsletter.id %}" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-100">
-                delete
-              </a>
-            </div>
+            
           </div>
         </div>
 
@@ -146,18 +139,30 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                  
-                  <h1>
-                    <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">
-                    Subject:</span>
-                    <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    {{newsletter.subject}}</span>
-                  </h1>
-
-                  <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-                    <p>{{newsletter.body}}</p>
-                  </div>  
-
+                <form method="POST">
+                {% csrf_token %}
+                <label class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                  Name
+                </label>
+                {{form.name}}
+                <label class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                  subject
+                </label>
+                {{form.subject}}
+                <label class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                  body
+                </label>
+                {{form.body}}
+                <label class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                  email
+                </label>
+                {{form.email}}
+                <label class="block text-sm font-medium dark:text-dark-txt text-gray-700">
+                  status
+                </label>
+                {{form.status}}
+                <button class="px-3 py-2 bg-blue-500 rounded-lg  text-white hover:bg-slate-900" type="submit">update post</button>
+                </form>  
                 </div>
               </div>
             </div>
